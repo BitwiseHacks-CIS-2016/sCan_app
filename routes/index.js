@@ -1,3 +1,5 @@
+'use strict'
+
 var express = require('express');
 var m2x = require('m2x')
 var models = require('../models.js');
@@ -11,7 +13,7 @@ var District = mongoose.model('District');
 var client = new m2x(process.env.API_KEY)
 
 
-district_list = {
+var district_list = {
     HKIS: [22.2377876, 114.223576],
     Islands: [22.247847, 113.917959],
     Kwai_Tsing: [22.370268, 114.136884],
@@ -103,7 +105,7 @@ router.route('/_client')
                 body: {
                     'name': 'filled',
                     'conditions': {
-                        'ldr_voltage': {'changed': True}
+                        'ldr_voltage': {'changed': true}
                     },
                     'frequency': 'continuous',
                     'callback_url': process.env.CALLBACK_URL,
@@ -152,8 +154,8 @@ router.get('/', function(req, res) {
 })
 router.get('/:district', function (req, res) {
     var district = req.params.district;
-    markers = {};
-    can_stream = Can.find().stream()
+    var markers = {};
+    var can_stream = Can.find().stream()
     can_stream.on('data', function(can) {
         markers[can.id] = [
             can.lat,
