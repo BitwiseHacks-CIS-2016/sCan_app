@@ -11,48 +11,48 @@ html(lang='en')
     .top-bar.bar
       a(href='/')
         img.logo(src="branding/color-logo.png", width='150', height='32.5')
-      span.district district
-      //nav.nav-links
-      //  ul
-      //    li
-      //      | Kowloon
-      //      ul
-      //        li
-      //          a(href="{{ url_for('.index', district='Kowloon_City') }}") Kowloon City
-      //        li
-      //          a(href="{{ url_for('.index', district='Kwun_Tong') }}") Kwun Tong
-      //        li
-      //          a(href="{{ url_for('.index', district='Sham_Shui_Po') }}") Sham Shui Po
-      //        li
-      //          a(href="{{ url_for('.index', district='Wong_Tai_Sin') }}") Wong Tai Sin
-      //        li
-      //          a(href="{{ url_for('.index', district='Yau_Tsim_Mong') }}") Yau Tsim Mong
-      //    li
-      //      | New Territories
-      //      ul
-      //        li
-      //          a(href="{{ url_for('.index', district='Islands') }}") Islands
-      //        li
-      //          a(href="{{ url_for('.index', district='Kwai_Tsing') }}") Kwai Tsing
-      //        li
-      //          a(href="{{ url_for('.index', district='North') }}") North
-      //        li
-      //          a(href="{{ url_for('.index', district='Sai_Kung') }}") Sai Kung
-      //        li
-      //          a(href="{{ url_for('.index', district='Sha_Tin') }}") Sha Tin
-      //        li
-      //          a(href="{{ url_for('.index', district='Tai_Po') }}") Tai Po
-      //        li
-      //          a(href="{{ url_for('.index', district='Tsuen_Wan') }}") Tsuen Wan
-      //        li
-      //          a(href="{{ url_for('.index', district='Yuen_Long') }}") Yuen Long
-      //    li
-      //      | Hong Kong Island
-      //      ul
-      //        li
-      //          a(href="{{ url_for('.index', district='Southern') }}") Southern
-      //        li
-      //          a(href="{{ url_for('.index', district='Wan_Chai') }}") Wan Chai
+      span.district #{title}
+      nav.nav-links
+        ul
+          li
+            | Kowloon
+            ul
+              li
+                a(href="/Kowloon_City") Kowloon City
+              li
+                a(href="/Kwun_Tong") Kwun Tong
+              li
+                a(href="/Sham_Shui_Po") Sham Shui Po
+              li
+                a(href="/Wong_Tai_Sin") Wong Tai Sin
+              li
+                a(href="/Yau_Tsim_Mong") Yau Tsim Mong
+          li
+            | New Territories
+            ul
+              li
+                a(href="/Islands") Islands
+              li
+                a(href="/Kwai_Tsing") Kwai Tsing
+              li
+                a(href="/North") North
+              li
+                a(href="/Sai_Kung") Sai Kung
+              li
+                a(href="/Sha_Tin") Sha Tin
+              li
+                a(href="/Tai_Po") Tai Po
+              li
+                a(href="/Tsuen_Wan") Tsuen Wan
+              li
+                a(href="/Yuen_Long") Yuen Long
+          li
+            | Hong Kong Island
+            ul
+              li
+                a(href="/Southern") Southern
+              li
+                a(href="/Wan_Chai") Wan Chai
     .directions-btn
       input(type='button', value='Directions')
     .legend

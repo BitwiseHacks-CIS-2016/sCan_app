@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('nsCan:server');
+var debug = require('debug')('sCan:server');
 var http = require('http');
 
 /**

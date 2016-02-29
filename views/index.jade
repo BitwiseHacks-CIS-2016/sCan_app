@@ -42,8 +42,8 @@ block script
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
                 center: {
-                    lat: 18.12,
-                    lng: 10.12
+                    lat: #{district_coords[0]},
+                    lng: #{district_coords[1]}
                 }
             })
             for (var key in bins) {

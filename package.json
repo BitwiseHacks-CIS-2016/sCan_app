@@ -1,5 +1,5 @@
 {
-  "name": "nsCan",
+  "name": "scan",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,21 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
+    "m2x": "^4.0.0",
+    "mongoose": "^4.4.5",
     "morgan": "~1.6.1",
+    "request": "^2.69.0",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "description": "Node.js implementation of the sCan web app",
+  "main": "bin/www",
+  "devDependencies": {},
+  "keywords": [
+    "sCan",
+    "trash",
+    "hong kong",
+    "node.js"
+  ],
+  "author": "Daniel Hsing",
+  "license": "MIT"
 }
