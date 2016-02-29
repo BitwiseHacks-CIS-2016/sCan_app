@@ -67,6 +67,10 @@ router.route('/_callback')
     })
     .get(function(req, res) {
         Can.find({}, function(err, docs) {
+            if (err) {
+                send_err(res, err.message)
+                return
+            }
             var total = []
             docs.forEach(function(can) {
                 total.push(can)
