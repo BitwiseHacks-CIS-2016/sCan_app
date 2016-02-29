@@ -66,9 +66,9 @@ router.route('/_callback')
 
     })
     .get(function(req, res) {
-        Can.find({}, function(err, docs) {
-            res.send(JSON.stringify(docs))
-        })
+        res.send(JSON.stringify({
+            status: 'OK'
+        }))
     })
 
 router.route('/_client')
