@@ -66,9 +66,13 @@ router.route('/_callback')
 
     })
     .get(function(req, res) {
-        res.send(JSON.stringify({
-            status: 'OK'
-        }))
+        Can.find({}, function(err, docs) {
+            var total = []
+            docs.forEach(function(can) {
+                total.push(can)
+            })
+            res.send(JSON.stringify(total))
+        })
     })
 
 router.route('/_client')
