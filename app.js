@@ -59,7 +59,8 @@ mongoose.connect(process.env.DATABASE_URL||'mongodb://localhost:27017/sample', f
     if (err)
         throw err;
     else
-        console.log('Connection Successful')
+        console.log('success')
+        //district_list
 });
 
 module.exports = app;

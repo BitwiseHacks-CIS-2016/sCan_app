@@ -11,7 +11,7 @@ var District = mongoose.model('District');
 var client = new m2x(process.env.API_KEY)
 
 
-var district_list = {
+district_list = {
     HKIS: [22.2377876, 114.223576],
     Islands: [22.247847, 113.917959],
     Kwai_Tsing: [22.370268, 114.136884],
@@ -72,7 +72,7 @@ router.route('/_callback')
 router.route('/_client')
     .post(function(req, res) { //Create new device
         try {
-            var data = req.data
+            var data = req.body
             var can = new Can({
                 lat: parseFloat(data.lat),
                 lng: parseFloat(data.lng),
