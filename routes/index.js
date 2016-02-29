@@ -79,8 +79,9 @@ router.route('/_client')
                 _district: data.district,
                 _type: data.type
             })
-            var device_data = client.devices.create({
-                name: Math.random().toString(36).slice(-10),
+            var device_id = Math.random().toString(36).slice(-10)
+            client.devices.create({
+                name: device_id,
                 visibility: 'public',
                 metadata: {
                     "lat": data.lat,
@@ -89,7 +90,6 @@ router.route('/_client')
                 },
                 tags: data.type
             })
-            var device_id = device_data.id
             client.devices.updateStream(device_id, 'ldr_voltage', {
                 name: 'ldr_voltage',
                 unit:{
