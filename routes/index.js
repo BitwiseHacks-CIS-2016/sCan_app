@@ -163,9 +163,11 @@ router.get('/', function(req, res) {
 router.get('/:district', function (req, res) {
     var district = req.params.district;
     var markers = {};
-    Can.find({}, function(err, docs) {
+    Can.find({})
+        .populate('_type')
+        .exec(function(err, docs) {
         docs.forEach(function(can) {
-            markers[can.id] = [
+            markers[can._id] = [
                 can.lat,
                 can.lng,
                 can.filled,
