@@ -1,4 +1,6 @@
 var mongoose = require('mongoose')
+var findOrCreate = require('mongoose-findorcreate')
+
 var schema = mongoose.Schema
 var models = {};
  
@@ -19,6 +21,8 @@ var CanSchema = new schema({
     _type: {type: String, ref: 'CanType'},
     _district: {type: String, ref: 'District'}
 });
+CanTypeSchema.plugin(findOrCreate)
+DistrictSchema.plugin(findOrCreate)
 models.CanType = mongoose.model('CanType', CanTypeSchema);
 models.District = mongoose.model('District', DistrictSchema);
 models.Can = mongoose.model('Can', CanSchema);

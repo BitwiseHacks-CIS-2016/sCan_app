@@ -13,7 +13,7 @@ var District = mongoose.model('District');
 var client = new m2x(process.env.API_KEY)
 
 
-var district_list = {
+router.district_list = {
     HKIS: [22.2377876, 114.223576],
     Islands: [22.247847, 113.917959],
     Kwai_Tsing: [22.370268, 114.136884],
@@ -32,7 +32,7 @@ var district_list = {
     Wan_Chai: [22.278417, 114.170817]
 };
 
-var type_list = {
+router.type_list = {
     'paper': "#4d7e9",
     'metal': "#fee434",
     'glass': "#5dd64b",
@@ -167,7 +167,7 @@ router.get('/:district', function (req, res) {
     res.render('index', {
         title: district,
         markers: markers,
-        district_coords: district_list[district]
+        district_coords: router.district_list[district]
     });
 });
 

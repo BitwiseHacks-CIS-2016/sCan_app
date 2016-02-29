@@ -58,9 +58,24 @@ app.use(function (err, req, res) {
 mongoose.connect(process.env.DATABASE_URL||'mongodb://localhost:27017/sample', function(err) {
     if (err)
         throw err;
-    else
-        console.log('success')
-        //district_list
+    else {
+        var CanType = mongoose.model('CanType')
+        var District = mongoose.model('District')
+        for (var key in routes.district_list) {
+            District.findOrCreate({
+                _id: key,
+                lat: routes.district_list[key][0],
+                lng: routes.district_list[key][1]
+            }, (err, doc, created) => null)
+        }
+        for (var key in routes.type_list) {
+            District.findOrCreate({
+                _id: key,
+                color: routes.type_list[key]
+            }, (err, doc, created) => null)
+        }
+    }
+
 });
 
 module.exports = app;
