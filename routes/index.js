@@ -148,7 +148,7 @@ router.route('/_client')
         try {
             client.deleteDevice(data.id)
             Can.findOneAndRemove({
-                _id: id
+                _id: data.id
             })
             res.send(JSON.stringify({status: 'OK'}))
         } catch (err) {
@@ -166,14 +166,15 @@ router.get('/:district', function (req, res) {
     Can.find({})
         .populate('_type')
         .exec(function(err, docs) {
-        docs.forEach(function(can) {
-            markers[can._id] = [
-                can.lat,
-                can.lng,
-                can.filled,
-                '../public/markers/' + can.filled + '-' + can._type.name + '.png'
-            ]
-        })
+            if (err) throw err
+            docs.forEach(function(can) {
+                markers[can._id] = [
+                    can.lat,
+                    can.lng,
+                    can.filled,
+                    '../public/markers/' + can.filled + '-' + can._type.name + '.png'
+                ]
+            })
     });
     res.render('index', {
         title: district,

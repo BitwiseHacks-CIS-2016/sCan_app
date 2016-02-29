@@ -17,7 +17,7 @@ var CanSchema = new schema({
     _id: String,
     lat: Number,
     lng: Number,
-    filled: Number,
+    filled: {type: Number, default: 0},
     _type: {type: String, ref: 'CanType'},
     _district: {type: String, ref: 'District'}
 });
