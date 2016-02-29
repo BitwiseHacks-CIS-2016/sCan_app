@@ -155,14 +155,15 @@ router.get('/', function(req, res) {
 router.get('/:district', function (req, res) {
     var district = req.params.district;
     var markers = {};
-    var can_stream = Can.find().stream()
-    can_stream.on('data', function(can) {
-        markers[can.id] = [
-            can.lat,
-            can.lng,
-            can.filled,
-            '../public/markers/'+can.filled+'-'+can._type.name+'.png'
-        ]
+    Can.find({}, function(err, docs) {
+        docs.forEach(function(can) {
+            markers[can.id] = [
+                can.lat,
+                can.lng,
+                can.filled,
+                '../public/markers/' + can.filled + '-' + can._type.name + '.png'
+            ]
+        })
     });
     res.render('index', {
         title: district,
