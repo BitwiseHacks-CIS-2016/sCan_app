@@ -1,0 +1,81 @@
+extends ./layout.jade
+
+block title
+    title sCan | #{title}
+
+block content
+    div#map
+    div#right-panel
+
+
+block script
+    script(type='text/javascript').
+        var centre_coords = [
+            {lat: 22.247847, lng: 113.917959},
+            {lat: 22.370268, lng: 114.136884},
+            {lat: 22.491737, lng: 114.138477},
+            {lat: 22.357500, lng: 114.240053},
+            {lat: 22.399165, lng: 114.192793},
+            {lat: 22.453442, lng: 114.188895},
+            {lat: 22.364977, lng: 114.115709},
+            {lat: 22.390829, lng: 113.972513},
+            {lat: 22.447849, lng: 114.003888},
+            {lat: 22.323095, lng: 114.164023},
+            {lat: 22.310528, lng: 114.225687},
+            {lat: 22.340360, lng: 114.150431},
+            {lat: 22.342033, lng: 114.196518},
+            {lat: 22.286669, lng: 114.149465},
+            {lat: 22.278417, lng: 114.170817}
+        ]
+        var bins = null //markers| tojson
+        //{key: [0, 1, 2, 3]}
+        var markers = []
+
+        var full = []
+        var fullMarks = []
+        var centerMarkers = []
+        var startMarker
+        var endMarker
+        var closestCenter
+        var waypts = []
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: {
+                    lat: 18.12,
+                    lng: 10.12
+                }
+            })
+            for (var key in bins) {
+              latLng = {lat: bins[key][0], lng: bins[key][1]}
+              markers.push(new google.maps.Marker({
+              position: latLng,
+              map: map,
+              icon: new google.maps.MarkerImage(bins[key][3])
+              }));
+              if (bins[key][2] == 1) {
+                fullMarks.push(markers[markers.length-1]);
+                full.push(bins[key]);
+                fullMarks[fullMarks.length-1].addListener('click', function() {
+
+                });
+              }
+            }
+            centre_coords.forEach(function(coords) {
+              centerMarkers.push(new google.maps.Marker({
+              position: coords,
+              map: map,
+              icon: new google.maps.MarkerImage('/markers/center.png')
+              }));
+            });
+
+            for (var i = 0; i < full.length; i++){
+              waypts.push({
+              location:{lat:full[i][0],lng:full[i][1]},
+              stopover:true
+              });
+            }
+            var closestCenterIndex = getClosestCenter(full, centre_coords);
+            closestCenter = centerMarkers[closestCenterIndex]
+            initDirections(fullMarks, map)
+        }

@@ -1,0 +1,91 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    block title
+        title
+    link(rel='icon', type='image/png', href="/branding/favicon.ico")
+    link(href="styles.css", rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700,300', rel='stylesheet', type='text/css')
+  body
+    .top-bar.bar
+      a(href='/')
+        img.logo(src="branding/color-logo.png", width='150', height='32.5')
+      span.district district
+      //nav.nav-links
+      //  ul
+      //    li
+      //      | Kowloon
+      //      ul
+      //        li
+      //          a(href="{{ url_for('.index', district='Kowloon_City') }}") Kowloon City
+      //        li
+      //          a(href="{{ url_for('.index', district='Kwun_Tong') }}") Kwun Tong
+      //        li
+      //          a(href="{{ url_for('.index', district='Sham_Shui_Po') }}") Sham Shui Po
+      //        li
+      //          a(href="{{ url_for('.index', district='Wong_Tai_Sin') }}") Wong Tai Sin
+      //        li
+      //          a(href="{{ url_for('.index', district='Yau_Tsim_Mong') }}") Yau Tsim Mong
+      //    li
+      //      | New Territories
+      //      ul
+      //        li
+      //          a(href="{{ url_for('.index', district='Islands') }}") Islands
+      //        li
+      //          a(href="{{ url_for('.index', district='Kwai_Tsing') }}") Kwai Tsing
+      //        li
+      //          a(href="{{ url_for('.index', district='North') }}") North
+      //        li
+      //          a(href="{{ url_for('.index', district='Sai_Kung') }}") Sai Kung
+      //        li
+      //          a(href="{{ url_for('.index', district='Sha_Tin') }}") Sha Tin
+      //        li
+      //          a(href="{{ url_for('.index', district='Tai_Po') }}") Tai Po
+      //        li
+      //          a(href="{{ url_for('.index', district='Tsuen_Wan') }}") Tsuen Wan
+      //        li
+      //          a(href="{{ url_for('.index', district='Yuen_Long') }}") Yuen Long
+      //    li
+      //      | Hong Kong Island
+      //      ul
+      //        li
+      //          a(href="{{ url_for('.index', district='Southern') }}") Southern
+      //        li
+      //          a(href="{{ url_for('.index', district='Wan_Chai') }}") Wan Chai
+    .directions-btn
+      input(type='button', value='Directions')
+    .legend
+      input(type='button', value='Legend')
+      hr
+      dl
+        div
+          dt
+            img(src='/markers/1-normal.png', width='28', height='28')
+          dd Non-recyclable
+        div
+          dt
+            img(src='/markers/1-paper.png', width='28', height='28')
+          dd Paper
+        div
+          dt
+            img(src='/markers/1-metal.png', width='28', height='28')
+          dd Metal
+        div
+          dt
+            img(src='/markers/1-glass.png', width='28', height='28')
+          dd Glass
+        div
+          dt
+            img(src='/markers/1-plastic.png', width='28', height='28')
+          dd Plastic
+        div
+          dt
+            img(src='/markers/center.png', width='28', height='28')
+          dd Collection centre
+    block content
+    .bottom-bar.bar © sCan, 2016
+    script(src='https://code.jquery.com/jquery-1.12.0.min.js')
+    script(type='text/javascript', src="main.js")
+    block script
+    script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCmM_C9dLeybibmwThXtQ2wrtEWOYUHHZs&callback=initMap')

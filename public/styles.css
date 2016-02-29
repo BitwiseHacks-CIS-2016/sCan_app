@@ -1,0 +1,211 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	max-height: 100%;
+	/*overflow: hidden;*/
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto Condensed", "Roboto", "Oswald", Helvetica, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+
+
+
+.bar {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.top-bar {
+	height: 12%;
+}
+
+.logo {
+	float: left;
+}
+
+.district {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-links {
+	float: right;
+	text-align: center;
+}
+
+.nav-links ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+    z-index: 3;
+}
+
+.nav-links li {
+	display: inline-block;
+	width: 12em;
+}
+
+.nav-links > ul > li:hover {
+	cursor: default;
+}
+
+.nav-links > ul > li:after {
+	content: "▾";
+	display: inline-block;
+	position: absolute;
+	margin-top: -.1em;
+	margin-left: .5em;
+}
+
+.nav-links li ul {
+	position: absolute;
+	display: none;
+	width: inherit;
+	padding: 1.3em 0 .8em;
+	border-radius: 2px;
+}
+
+.nav-links li:hover ul {
+	display: block;
+}
+
+.nav-links li ul li {
+	display: block;
+}
+
+.nav-links a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: .9em 0;
+	transition: .1s color;
+	color: #000;
+}
+
+.nav-links a:hover {
+	color: #5ab573;
+}
+
+.directions-btn {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    background-color: #fff;
+    padding: .5em 1em;
+    z-index: 1;
+}
+
+.directions-btn input {
+    font-family: "Roboto", "Oswald", Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+    text-transform: uppercase;
+    font-size: .9em;
+    padding: 0;
+    outline: 0;
+}
+
+.directions-btn input:hover {
+    cursor: pointer;
+}
+
+.bottom-bar {
+	height: 6.5%;
+}
+
+#right-panel {
+    position: absolute;
+    right: -25%;
+    background-color: #fff;
+    width: 25%;
+    float: right;
+    padding: 1em 2em 2em;
+    max-height: 80%;
+    overflow: scroll;
+    font-size: .9em;
+    line-height: 1.5;
+}
+
+
+
+
+#map {
+	height: 80%;
+	width: 100%;
+    float: left;
+}
+
+.legend {
+	position: absolute;
+	padding: .5em 1.2em;
+	background-color: #fff;
+	top: 15em;
+	left: .7em;
+	box-shadow: 0 1px 4px -1px rgba(0, 0, 0, .3);
+	font-size: .9em;
+}
+
+.legend input {
+	display: block;
+	text-align: center;
+	padding: .2em 1em;
+	background-color: #fff;
+	border-radius: 2px;
+	border: 0;
+	font-family: "Roboto", "Oswald", Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-size: .9em;
+	outline: 0;
+	width: 10em;
+}
+
+.legend input:hover {
+	cursor: pointer;
+}
+
+.legend hr {
+	margin: 1em auto;
+	width: 50%;
+    display: none;
+}
+
+.legend dl {
+	margin: 0;
+	display: none;
+}
+
+.legend dl div {
+	display: flex;
+	align-items: center;
+	margin: .5em 0;
+}
+
+.legend dt {
+	display: inline-block;
+}
+
+.legend dd {
+	display: inline-block;
+	margin-left: .5em;
+}
+
+
+
+.graphs {
+	height: 80%;
+}

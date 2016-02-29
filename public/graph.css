@@ -1,0 +1,105 @@
+.graphs {
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: #5D686B;
+  color: #fff;
+}
+
+.graph {
+  display: block;
+  position: relative;
+  top: 20.6%;
+  height: 80%;
+  padding: 0;
+}
+
+.graph caption {
+  caption-side: top;
+  width: 600px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: bold;
+}
+
+.graph tr, .graph td {
+  position: absolute;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.graph td {
+  color: #fff;
+  background-color: #5ab573;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.graph td:hover {
+  background-color: #4d4d4d;
+  opacity: .9;
+}
+
+.graph #tc1 {  left: 50px;  }
+#southern #tc1 .bar { height: 80px; }
+
+.graph #tc2 {  left: 100px;  }
+#southern #tc2 .bar { height: 200px; }
+
+.graph #tc3 {  left: 150px;  }
+#southern #tc3 .bar {  height: 160px;  }
+
+.graph #tc4 {  left: 200px;  }
+#southern #tc4 .bar {  height: 40px;  }
+
+.graph #tc5 {  left: 250px;  }
+#southern #tc5 .bar {  height: 80px;  }
+
+.graph #tc6 {  left: 300px;  }
+#southern #tc6 .bar {  height: 40px;  }
+
+.graph #tc7 {  left: 350px;  }
+#southern #tc7 .bar {  height: 120px;  }
+
+.graph #tc8 {  left: 400px;  }
+#southern #tc8 .bar {  height: 160px;  }
+
+.graph #tc9 {  left: 450px;  }
+#southern #tc9 .bar {  height: 160px;  }
+
+.graph #tc10 { left: 500px;  }
+#southern #tc10 .bar {  height: 40px;  }
+
+.graph .bar {
+  width: 40px;
+  border: 1px solid;
+  border-bottom: none;
+}
+
+#ticks {
+  position: relative;
+  top: -25%;
+}
+
+#ticks .tick {
+  position: relative;
+  border-bottom: 1px dotted #C4C4C4;
+  width: 500px;
+  height: 40px;
+}
+
+#ticks .tick p {
+  position: absolute;
+  left: -5em;
+  top: -0.8em;
+  margin: 0 0 0 0.5em;
+}
