@@ -47,7 +47,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
@@ -55,7 +55,7 @@ app.use(function (err, req, res, next) {
     });
 });
 
-mongoose.connect('mongodb://localhost:27017/sample', function(err) {
+mongoose.connect(process.env.DATABASE_URL||'mongodb://localhost:27017/sample', function(err) {
     if (err)
         throw err;
     else
