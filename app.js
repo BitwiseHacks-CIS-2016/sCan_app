@@ -69,7 +69,7 @@ mongoose.connect(process.env.DATABASE_URL||'mongodb://localhost:27017/sample', f
             }, (err, doc, created) => null)
         }
         for (var key in routes.type_list) {
-            District.findOrCreate({
+            CanType.findOrCreate({
                 _id: key,
                 color: routes.type_list[key]
             }, (err, doc, created) => null)
