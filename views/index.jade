@@ -27,7 +27,7 @@ block script
             {lat: 22.286669, lng: 114.149465},
             {lat: 22.278417, lng: 114.170817}
         ]
-        var bins = #{markers}
+        var bins = JSON.parse(#{markers})
         var markers = []
 
         var full = []
@@ -46,33 +46,33 @@ block script
                 }
             })
             for (var key in bins) {
-              latLng = {lat: bins[key][0], lng: bins[key][1]}
-              markers.push(new google.maps.Marker({
-              position: latLng,
-              map: map,
-              icon: new google.maps.MarkerImage(bins[key][3])
-              }));
-              if (bins[key][2] == 1) {
-                fullMarks.push(markers[markers.length-1]);
-                full.push(bins[key]);
-                fullMarks[fullMarks.length-1].addListener('click', function() {
+                latLng = {lat: bins[key][0], lng: bins[key][1]}
+                markers.push(new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    icon: new google.maps.MarkerImage(bins[key][3])
+                }));
+                if (bins[key][2] == 1) {
+                    fullMarks.push(markers[markers.length - 1]);
+                    full.push(bins[key]);
+                    fullMarks[fullMarks.length - 1].addListener('click', function () {
 
-                });
-              }
+                    });
+                }
             }
-            centre_coords.forEach(function(coords) {
-              centerMarkers.push(new google.maps.Marker({
-              position: coords,
-              map: map,
-              icon: new google.maps.MarkerImage('/markers/center.png')
-              }));
+            centre_coords.forEach(function (coords) {
+                centerMarkers.push(new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    icon: new google.maps.MarkerImage('/markers/center.png')
+                }));
             });
 
-            for (var i = 0; i < full.length; i++){
-              waypts.push({
-              location:{lat:full[i][0],lng:full[i][1]},
-              stopover:true
-              });
+            for (var i = 0; i < full.length; i++) {
+                waypts.push({
+                    location: {lat: full[i][0], lng: full[i][1]},
+                    stopover: true
+                });
             }
             var closestCenterIndex = getClosestCenter(full, centre_coords);
             closestCenter = centerMarkers[closestCenterIndex]
