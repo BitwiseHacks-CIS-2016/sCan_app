@@ -163,33 +163,36 @@ router.get('/', function(req, res) {
 router.get('/:district', function (req, res) {
     var district = req.params.district;
     var markers = {};
-    Can.find({}, function(err, docs) {
-        docs.forEach(function(can) {
-            markers[can._id] = [
-                can.lat,
-                can.lng,
-                can.filled,
-                '../public/markers/' + can.filled + '-' + can._type + '.png'
-            ]
-        })
-    })
-    //Can.find({})
-    //    .populate('_type')
-    //    .exec(function(err, docs) {
-    //        if (err) throw err
-    //        docs.forEach(function(can) {
-    //            markers[can._id] = [
-    //                can.lat,
-    //                can.lng,
-    //                can.filled,
-    //                '../public/markers/' + can.filled + '-' + can._type.name + '.png'
-    //            ]
-    //        })
-    //    });
+    var data = {}
+    //Can.find({}, function(err, docs) {
+    //    docs.forEach(function(can) {
+    //        markers[can._id] = [
+    //            can.lat,
+    //            can.lng,
+    //            can.filled,
+    //            '../public/markers/' + can.filled + '-' + can._type + '.png'
+    //        ]
+    //    })
+    //})
+    Can.find({})
+        .populate('_type')
+        .exec(function(err, docs) {
+            if (err) throw err
+            data = docs
+            docs.forEach(function(can) {
+                markers[can._id] = [
+                    can.lat,
+                    can.lng,
+                    can.filled,
+                    '../public/markers/' + can.filled + '-' + can._type.name + '.png'
+                ]
+            })
+        });
     res.render('index', {
         title: district,
         markers: JSON.stringify(markers),
-        district_coords: router.district_list[district]
+        district_coords: router.district_list[district],
+        data: data
     });
 });
 
