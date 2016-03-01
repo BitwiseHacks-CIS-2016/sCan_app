@@ -162,27 +162,25 @@ router.get('/', function(req, res) {
 })
 router.get('/:district', function (req, res) {
     var district = req.params.district;
-    var markers = [];
-    var data = {}
+    var markers = {};
     Can.find({})
         .populate('_type')
         .exec(function(err, docs) {
             if (err) throw err
             docs.forEach(function(can) {
-                markers.push([
+                markers[can._id] = [
                     can.lat,
                     can.lng,
                     can.filled,
                     '../public/markers/' + can.filled + '-' + can._type.name + '.png'
-                ])
+                ]
             })
+            res.render('index', {
+                title: district,
+                markers: JSON.stringify(markers),
+                district_coords: router.district_list[district]
+            });
         });
-    res.render('index', {
-        title: district,
-        markers: JSON.stringify(markers),
-        district_coords: router.district_list[district],
-        data: JSON.stringify(data)
-    });
 });
 
 module.exports = router;
