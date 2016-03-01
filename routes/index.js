@@ -172,7 +172,7 @@ router.get('/:district', function (req, res) {
                     can.lat,
                     can.lng,
                     can.filled,
-                    '../public/markers/' + can.filled + '-' + can._type._id + '.png'
+                    '/markers/' + can.filled + '-' + can._type._id + '.png'
                 ]
             })
             res.render('index', {
