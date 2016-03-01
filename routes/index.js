@@ -192,7 +192,7 @@ router.get('/:district', function (req, res) {
         title: district,
         markers: JSON.stringify(markers),
         district_coords: router.district_list[district],
-        data: data
+        data: JSON.stringify(data)
     });
 });
 
